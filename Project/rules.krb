@@ -1,37 +1,18 @@
-openness_question1
-    use openness($ans)
+openness_questions
+    use openness($avg)
     when
-        questions.openness_1($ans)
-
-openness_question2
-    use openness2($tot)
-    when
+        questions.openness_1($ans1)
         questions.openness_2($ans2)
-        openness($ans)
-        python tot = $ans + $ans2
+        questions.openness_3($ans3)
+        questions.openness_4($ans4)
 
-        $tot = int(tot)
+        $tot = $ans1 + $ans2 + $ans3 + $ans4
+        $avg = $tot / 4
 
-openness_question3
-    use openness3($tot)
+openness_test
+    use what_is_the_personality(lively)
     when
-        questions.openness_3($ans2)
-        openness2($ans)
-        python tot = $ans + $ans2
-
-        $tot = int(tot)
-
-openness_question4
-    use openness_final($tot)
-    when
-        questions.openness_3($ans2)
-        openness3($ans)
-        python tot = $ans + $ans2
-
-        $tot = int(tot)
-
-test
-    use what_is_the_personality(openness)
-    when
-        openness2($tot)
-        check $tot <= 10
+        questions.gender($gender)
+        questions.age($age)
+        openness($avg_openness)
+        check $avg_openness >= 5.0

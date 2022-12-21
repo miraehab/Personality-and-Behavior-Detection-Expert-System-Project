@@ -1,3 +1,15 @@
+gender($ans)
+    Enter your Gender:
+    ---
+        $ans = select_1
+            0: Male
+            1: Female
+
+age($ans)
+    Enter your Age:
+    ---
+    $ans = integer(0-120)
+
 openness_1($ans)
     I'm good at coming up with new ideas. rate yourself from 1 to 8
 
