@@ -1,0 +1,55 @@
+openness_1($ans)
+    I'm good at coming up with new ideas. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+openness_2 ($ans)
+    I'm curious about how things work. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+openness_3 ($ans)
+    I appreciate being around diverse groups of people. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+openness_4 ($ans)
+    I would prefer to have a theoretical discussion rather than making small talk. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8			

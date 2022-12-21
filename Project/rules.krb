@@ -1,0 +1,37 @@
+openness_question1
+    use openness($ans)
+    when
+        questions.openness_1($ans)
+
+openness_question2
+    use openness2($tot)
+    when
+        questions.openness_2($ans2)
+        openness($ans)
+        python tot = $ans + $ans2
+
+        $tot = int(tot)
+
+openness_question3
+    use openness3($tot)
+    when
+        questions.openness_3($ans2)
+        openness2($ans)
+        python tot = $ans + $ans2
+
+        $tot = int(tot)
+
+openness_question4
+    use openness_final($tot)
+    when
+        questions.openness_3($ans2)
+        openness3($ans)
+        python tot = $ans + $ans2
+
+        $tot = int(tot)
+
+test
+    use what_is_the_personality(openness)
+    when
+        openness2($tot)
+        check $tot <= 10
