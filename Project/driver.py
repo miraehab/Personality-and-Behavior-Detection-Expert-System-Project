@@ -15,9 +15,9 @@ def test_questions():
     print("doing proof")
     
     try:
-        with engine.prove_goal('rules.what_is_the_personality($personality)') as gen: #STUDENTS: you will need to edit this line
+        with engine.prove_goal('rules.what_is_the_personality($personality)') as gen: # you will need to edit this line
             for vars, plan in gen:
-                print("You Personality is: %s" % (vars['personality'])) #STUDENTS: you will need to edit this line
+                print("You Personality is: %s" % (vars['personality'])) # you will need to edit this line
 
     except Exception:
         # This converts stack frames of generated python functions back to the

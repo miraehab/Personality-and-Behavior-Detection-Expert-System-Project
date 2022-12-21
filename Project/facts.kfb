@@ -1,0 +1,8 @@
+# personality facts
+# These are the five main personality types
+
+lively(True)
+serious(True)
+responsible(True)
+dependable(True)
+extraverted(True)
