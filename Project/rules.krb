@@ -134,4 +134,44 @@ check_serious_5
         check $avg_conscientiousness <= 1.5
         check $avg_neuroticism > 6.5
 
+check_responsible_1
+    use what_is_the_personality(responsible)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness > 6.5
+        check $avg_neuroticism <= 2.5
+        check $avg_conscientiousness <= 1.5
+
+check_responsible_2
+    use what_is_the_personality(responsible)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness <= 6.5
+        check $avg_agreeableness > 5.5
+        check $avg_conscientiousness <= 3.5
+        check $age > 18.5
+
+check_responsible_3
+    use what_is_the_personality(responsible)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness <= 5.5
+        check $age > 18.5
+        check $avg_extraversion > 2.5
+        
         
