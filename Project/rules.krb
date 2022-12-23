@@ -9,10 +9,22 @@ openness_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-openness_test
+neuroticism_questions
+    use neuroticism($avg)
+    when
+        questions.neuroticism_1($ans1)
+        questions.neuroticism_2($ans2)
+        questions.neuroticism_3($ans3)
+        questions.neuroticism_4($ans4)
+
+        $tot = $ans1 + $ans2 + $ans3 + $ans4
+        $avg = $tot / 4
+
+result
     use what_is_the_personality(lively)
     when
         questions.gender($gender)
         questions.age($age)
         openness($avg_openness)
+        neuroticism($avg_neuroticism)
         check $avg_openness >= 5.0

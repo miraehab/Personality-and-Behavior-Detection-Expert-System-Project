@@ -65,3 +65,59 @@ openness_4 ($ans)
             6: 6
             7: 7
             8: 8			
+
+neuroticism_1 ($ans)
+    I am relaxed most of the time. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8	
+
+neuroticism_2 ($ans)
+    I panic easily. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+neuroticism_3 ($ans)
+    I dislike myself. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+neuroticism_4 ($ans)
+    I remain calm under pressure. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
