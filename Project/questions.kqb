@@ -177,3 +177,59 @@ conscientiousness_4 ($ans)
             6: 6
             7: 7
             8: 8
+
+agreeableness_1 ($ans)
+    I believe that I am better than others. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+agreeableness_2 ($ans)
+    I treat all people equally. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+agreeableness_3 ($ans)
+    I am easy to satisfy. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+agreeableness_4 ($ans)
+    I trust what people say. rate yourself from 1 to 8
+
+    ---
+        $ans = select_1
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
