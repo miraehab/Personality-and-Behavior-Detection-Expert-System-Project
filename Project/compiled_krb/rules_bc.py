@@ -221,6 +221,60 @@ def agreeableness_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
+def extraversion_questions(rule, arg_patterns, arg_context):
+  engine = rule.rule_base.engine
+  patterns = rule.goal_arg_patterns()
+  if len(arg_patterns) == len(patterns):
+    context = contexts.bc_context(rule)
+    try:
+      if all(map(lambda pat, arg:
+                   pat.match_pattern(context, context,
+                                     arg, arg_context),
+                 patterns,
+                 arg_patterns)):
+        rule.rule_base.num_bc_rules_matched += 1
+        with engine.prove('questions', 'extraversion_1', context,
+                          (rule.pattern(0),)) \
+          as gen_1:
+          for x_1 in gen_1:
+            assert x_1 is None, \
+              "rules.extraversion_questions: got unexpected plan from when clause 1"
+            with engine.prove('questions', 'extraversion_2', context,
+                              (rule.pattern(1),)) \
+              as gen_2:
+              for x_2 in gen_2:
+                assert x_2 is None, \
+                  "rules.extraversion_questions: got unexpected plan from when clause 2"
+                with engine.prove('questions', 'extraversion_3', context,
+                                  (rule.pattern(2),)) \
+                  as gen_3:
+                  for x_3 in gen_3:
+                    assert x_3 is None, \
+                      "rules.extraversion_questions: got unexpected plan from when clause 3"
+                    with engine.prove('questions', 'extraversion_4', context,
+                                      (rule.pattern(3),)) \
+                      as gen_4:
+                      for x_4 in gen_4:
+                        assert x_4 is None, \
+                          "rules.extraversion_questions: got unexpected plan from when clause 4"
+                        mark5 = context.mark(True)
+                        if rule.pattern(4).match_data(context, context,
+                                context.lookup_data('ans1') + context.lookup_data('ans2') + context.lookup_data('ans3') + context.lookup_data('ans4')):
+                          context.end_save_all_undo()
+                          mark6 = context.mark(True)
+                          if rule.pattern(5).match_data(context, context,
+                                  context.lookup_data('tot') / 4):
+                            context.end_save_all_undo()
+                            rule.rule_base.num_bc_rule_successes += 1
+                            yield
+                          else: context.end_save_all_undo()
+                          context.undo_to_mark(mark6)
+                        else: context.end_save_all_undo()
+                        context.undo_to_mark(mark5)
+        rule.rule_base.num_bc_rule_failures += 1
+    finally:
+      context.done()
+
 def result(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
@@ -269,9 +323,15 @@ def result(rule, arg_patterns, arg_context):
                               for x_6 in gen_6:
                                 assert x_6 is None, \
                                   "rules.result: got unexpected plan from when clause 6"
-                                if context.lookup_data('avg_openness') >= 5.0:
-                                  rule.rule_base.num_bc_rule_successes += 1
-                                  yield
+                                with engine.prove(rule.rule_base.root_name, 'extraversion', context,
+                                                  (rule.pattern(6),)) \
+                                  as gen_7:
+                                  for x_7 in gen_7:
+                                    assert x_7 is None, \
+                                      "rules.result: got unexpected plan from when clause 7"
+                                    if context.lookup_data('avg_openness') >= 5.0:
+                                      rule.rule_base.num_bc_rule_successes += 1
+                                      yield
         rule.rule_base.num_bc_rule_failures += 1
     finally:
       context.done()
@@ -323,6 +383,17 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
+  bc_rule.bc_rule('extraversion_questions', This_rule_base, 'extraversion',
+                  extraversion_questions, None,
+                  (contexts.variable('avg'),),
+                  (),
+                  (contexts.variable('ans1'),
+                   contexts.variable('ans2'),
+                   contexts.variable('ans3'),
+                   contexts.variable('ans4'),
+                   contexts.variable('tot'),
+                   contexts.variable('avg'),))
+  
   bc_rule.bc_rule('result', This_rule_base, 'what_is_the_personality',
                   result, None,
                   (pattern.pattern_literal('lively'),),
@@ -332,7 +403,8 @@ def populate(engine):
                    contexts.variable('avg_openness'),
                    contexts.variable('avg_neuroticism'),
                    contexts.variable('avg_conscientiousness'),
-                   contexts.variable('avg_agreeableness'),))
+                   contexts.variable('avg_agreeableness'),
+                   contexts.variable('avg_extraversion'),))
 
 
 Krb_filename = '..\\rules.krb'
@@ -370,7 +442,15 @@ Krb_lineno_map = (
     ((242, 247), (49, 49)),
     ((248, 253), (50, 50)),
     ((254, 259), (51, 51)),
-    ((260, 265), (52, 52)),
-    ((266, 271), (53, 53)),
-    ((272, 272), (54, 54)),
+    ((262, 262), (53, 53)),
+    ((266, 266), (54, 54)),
+    ((284, 288), (57, 57)),
+    ((290, 295), (59, 59)),
+    ((296, 301), (60, 60)),
+    ((302, 307), (61, 61)),
+    ((308, 313), (62, 62)),
+    ((314, 319), (63, 63)),
+    ((320, 325), (64, 64)),
+    ((326, 331), (65, 65)),
+    ((332, 332), (66, 66)),
 )

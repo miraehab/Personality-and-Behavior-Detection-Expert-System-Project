@@ -42,6 +42,17 @@ agreeableness_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
+extraversion_questions
+    use extraversion($avg)
+    when
+        questions.extraversion_1($ans1)
+        questions.extraversion_2($ans2)
+        questions.extraversion_3($ans3)
+        questions.extraversion_4($ans4)
+
+        $tot = $ans1 + $ans2 + $ans3 + $ans4
+        $avg = $tot / 4
+
 result
     use what_is_the_personality(lively)
     when
@@ -51,4 +62,5 @@ result
         neuroticism($avg_neuroticism)
         conscientiousness($avg_conscientiousness)
         agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
         check $avg_openness >= 5.0
