@@ -20,6 +20,17 @@ neuroticism_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
+conscientiousness_questions
+    use conscientiousness($avg)
+    when
+        questions.conscientiousness_1($ans1)
+        questions.conscientiousness_2($ans2)
+        questions.conscientiousness_3($ans3)
+        questions.conscientiousness_4($ans4)
+
+        $tot = $ans1 + $ans2 + $ans3 + $ans4
+        $avg = $tot / 4
+
 result
     use what_is_the_personality(lively)
     when
@@ -27,4 +38,5 @@ result
         questions.age($age)
         openness($avg_openness)
         neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
         check $avg_openness >= 5.0
