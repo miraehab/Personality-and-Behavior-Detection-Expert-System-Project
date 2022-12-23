@@ -53,14 +53,85 @@ extraversion_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-result
-    use what_is_the_personality(lively)
+gender_question
+    use gender($gender)
     when
         questions.gender($gender)
+
+age_question
+    use age($age)
+    when
         questions.age($age)
+
+check_serious_1
+    use what_is_the_personality(serious)
+    when
+        gender($gender)
+        age($age)
         openness($avg_openness)
         neuroticism($avg_neuroticism)
         conscientiousness($avg_conscientiousness)
         agreeableness($avg_agreeableness)
         extraversion($avg_extraversion)
-        check $avg_openness >= 5.0
+        check $avg_agreeableness > 6.5
+        check $avg_neuroticism > 2.5
+        check $avg_conscientiousness > 1.5
+        check $avg_neuroticism > 5.5
+
+check_serious_2
+    use what_is_the_personality(serious)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness > 6.5
+        check $avg_neuroticism <= 2.5
+        check $avg_conscientiousness > 1.5
+        check $age > 18.5
+
+check_serious_3
+    use what_is_the_personality(serious)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness <= 6.5
+        check $avg_agreeableness > 5.5
+        check $avg_conscientiousness > 3.5  
+        check $avg_extraversion <= 3.5  
+
+check_serious_4
+    use what_is_the_personality(serious)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness <= 6.5
+        check $avg_agreeableness <= 5.5
+        check $age <= 18.5
+        check $avg_openness > 3.5
+
+check_serious_5
+    use what_is_the_personality(serious)
+    when
+        age($age)
+        openness($avg_openness)
+        neuroticism($avg_neuroticism)
+        conscientiousness($avg_conscientiousness)
+        agreeableness($avg_agreeableness)
+        extraversion($avg_extraversion)
+        check $avg_agreeableness > 6.5
+        check $avg_neuroticism > 2.5
+        check $avg_conscientiousness <= 1.5
+        check $avg_neuroticism > 6.5
+
+        

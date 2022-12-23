@@ -275,7 +275,7 @@ def extraversion_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
-def result(rule, arg_patterns, arg_context):
+def gender_question(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -292,46 +292,97 @@ def result(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "rules.result: got unexpected plan from when clause 1"
-            with engine.prove('questions', 'age', context,
+              "rules.gender_question: got unexpected plan from when clause 1"
+            rule.rule_base.num_bc_rule_successes += 1
+            yield
+        rule.rule_base.num_bc_rule_failures += 1
+    finally:
+      context.done()
+
+def age_question(rule, arg_patterns, arg_context):
+  engine = rule.rule_base.engine
+  patterns = rule.goal_arg_patterns()
+  if len(arg_patterns) == len(patterns):
+    context = contexts.bc_context(rule)
+    try:
+      if all(map(lambda pat, arg:
+                   pat.match_pattern(context, context,
+                                     arg, arg_context),
+                 patterns,
+                 arg_patterns)):
+        rule.rule_base.num_bc_rules_matched += 1
+        with engine.prove('questions', 'age', context,
+                          (rule.pattern(0),)) \
+          as gen_1:
+          for x_1 in gen_1:
+            assert x_1 is None, \
+              "rules.age_question: got unexpected plan from when clause 1"
+            rule.rule_base.num_bc_rule_successes += 1
+            yield
+        rule.rule_base.num_bc_rule_failures += 1
+    finally:
+      context.done()
+
+def check_serious_1(rule, arg_patterns, arg_context):
+  engine = rule.rule_base.engine
+  patterns = rule.goal_arg_patterns()
+  if len(arg_patterns) == len(patterns):
+    context = contexts.bc_context(rule)
+    try:
+      if all(map(lambda pat, arg:
+                   pat.match_pattern(context, context,
+                                     arg, arg_context),
+                 patterns,
+                 arg_patterns)):
+        rule.rule_base.num_bc_rules_matched += 1
+        with engine.prove(rule.rule_base.root_name, 'gender', context,
+                          (rule.pattern(0),)) \
+          as gen_1:
+          for x_1 in gen_1:
+            assert x_1 is None, \
+              "rules.check_serious_1: got unexpected plan from when clause 1"
+            with engine.prove(rule.rule_base.root_name, 'age', context,
                               (rule.pattern(1),)) \
               as gen_2:
               for x_2 in gen_2:
                 assert x_2 is None, \
-                  "rules.result: got unexpected plan from when clause 2"
+                  "rules.check_serious_1: got unexpected plan from when clause 2"
                 with engine.prove(rule.rule_base.root_name, 'openness', context,
                                   (rule.pattern(2),)) \
                   as gen_3:
                   for x_3 in gen_3:
                     assert x_3 is None, \
-                      "rules.result: got unexpected plan from when clause 3"
+                      "rules.check_serious_1: got unexpected plan from when clause 3"
                     with engine.prove(rule.rule_base.root_name, 'neuroticism', context,
                                       (rule.pattern(3),)) \
                       as gen_4:
                       for x_4 in gen_4:
                         assert x_4 is None, \
-                          "rules.result: got unexpected plan from when clause 4"
+                          "rules.check_serious_1: got unexpected plan from when clause 4"
                         with engine.prove(rule.rule_base.root_name, 'conscientiousness', context,
                                           (rule.pattern(4),)) \
                           as gen_5:
                           for x_5 in gen_5:
                             assert x_5 is None, \
-                              "rules.result: got unexpected plan from when clause 5"
+                              "rules.check_serious_1: got unexpected plan from when clause 5"
                             with engine.prove(rule.rule_base.root_name, 'agreeableness', context,
                                               (rule.pattern(5),)) \
                               as gen_6:
                               for x_6 in gen_6:
                                 assert x_6 is None, \
-                                  "rules.result: got unexpected plan from when clause 6"
+                                  "rules.check_serious_1: got unexpected plan from when clause 6"
                                 with engine.prove(rule.rule_base.root_name, 'extraversion', context,
                                                   (rule.pattern(6),)) \
                                   as gen_7:
                                   for x_7 in gen_7:
                                     assert x_7 is None, \
-                                      "rules.result: got unexpected plan from when clause 7"
-                                    if context.lookup_data('avg_openness') >= 5.0:
-                                      rule.rule_base.num_bc_rule_successes += 1
-                                      yield
+                                      "rules.check_serious_1: got unexpected plan from when clause 7"
+                                    if context.lookup_data('avg_agreeableness') > 6.5:
+                                      if context.lookup_data('avg_neuroticism') > 2.5:
+                                        if context.lookup_data('avg_conscientiousness') > 1.5:
+                                          if context.lookup_data('avg_neuroticism') > 5.5:
+                                            rule.rule_base.num_bc_rule_successes += 1
+                                            yield
         rule.rule_base.num_bc_rule_failures += 1
     finally:
       context.done()
@@ -394,9 +445,21 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
-  bc_rule.bc_rule('result', This_rule_base, 'what_is_the_personality',
-                  result, None,
-                  (pattern.pattern_literal('lively'),),
+  bc_rule.bc_rule('gender_question', This_rule_base, 'gender',
+                  gender_question, None,
+                  (contexts.variable('gender'),),
+                  (),
+                  (contexts.variable('gender'),))
+  
+  bc_rule.bc_rule('age_question', This_rule_base, 'age',
+                  age_question, None,
+                  (contexts.variable('age'),),
+                  (),
+                  (contexts.variable('age'),))
+  
+  bc_rule.bc_rule('check_serious_1', This_rule_base, 'what_is_the_personality',
+                  check_serious_1, None,
+                  (pattern.pattern_literal('serious'),),
                   (),
                   (contexts.variable('gender'),
                    contexts.variable('age'),
@@ -446,11 +509,18 @@ Krb_lineno_map = (
     ((266, 266), (54, 54)),
     ((284, 288), (57, 57)),
     ((290, 295), (59, 59)),
-    ((296, 301), (60, 60)),
-    ((302, 307), (61, 61)),
-    ((308, 313), (62, 62)),
-    ((314, 319), (63, 63)),
-    ((320, 325), (64, 64)),
-    ((326, 331), (65, 65)),
-    ((332, 332), (66, 66)),
+    ((308, 312), (62, 62)),
+    ((314, 319), (64, 64)),
+    ((332, 336), (67, 67)),
+    ((338, 343), (69, 69)),
+    ((344, 349), (70, 70)),
+    ((350, 355), (71, 71)),
+    ((356, 361), (72, 72)),
+    ((362, 367), (73, 73)),
+    ((368, 373), (74, 74)),
+    ((374, 379), (75, 75)),
+    ((380, 380), (76, 76)),
+    ((381, 381), (77, 77)),
+    ((382, 382), (78, 78)),
+    ((383, 383), (79, 79)),
 )
