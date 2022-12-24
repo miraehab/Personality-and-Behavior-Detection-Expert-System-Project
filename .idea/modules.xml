@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Personality-and-Behavior-Detection-Expert-System-Project.iml" filepath="$PROJECT_DIR$/.idea/Personality-and-Behavior-Detection-Expert-System-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/personality_test.iml" filepath="$PROJECT_DIR$/.idea/personality_test.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Personality Test</title>
+</head>
+     
+<body>
+    <div class="container">
+        <form  class="container" id="form" method="post">
+            {% csrf_token %}
+            <div class="title">Personality Test</div>
+            <br>
+            <div class="input-box">
+                <label> Gender <b>:</b> </label>
+                <input id="gen1" type="radio" name="gender" value="Male" required>
+                <label for="gen1">Male</label>
+
+                <input id="gen2" type="radio" name="gender" value="Female" required>
+                <label for="gen2">Female</label>
+            </div>
+
+            <div class="input-box">
+                <label>Age</label>
+                <input type="number" name="age" placeholder="Age" required>
+            </div>
+
+                        {% for question in questions %}
+            <h3 class="input-box">Question {{ forloop.counter }}:</h3>
+            <div class="input-box">
+                <label>{{ question }}</label>
+                <select name="question{{ forloop.counter }}" id="Level">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>/
+                    <option value="5">5</option>/
+                    <option value="6">6</option>/
+                    <option value="7">7</option>/
+                    <option value="8">8</option>/
+                </select>
+            </div>
+            {% endfor %}
+
+            <div class="button">
+                <input class="submit" type="submit" value="Register">
+            </div>
+
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,10 +1,10 @@
 openness_questions
     use openness($avg)
     when
-        questions.openness_1($ans1)
-        questions.openness_2($ans2)
-        questions.openness_3($ans3)
-        questions.openness_4($ans4)
+        facts.openness_1($ans1)
+        facts.openness_2($ans2)
+        facts.openness_3($ans3)
+        facts.openness_4($ans4)
 
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
@@ -12,10 +12,10 @@ openness_questions
 neuroticism_questions
     use neuroticism($avg)
     when
-        questions.neuroticism_1($ans1)
-        questions.neuroticism_2($ans2)
-        questions.neuroticism_3($ans3)
-        questions.neuroticism_4($ans4)
+        facts.neuroticism_1($ans1)
+        facts.neuroticism_2($ans2)
+        facts.neuroticism_3($ans3)
+        facts.neuroticism_4($ans4)
 
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
@@ -23,10 +23,10 @@ neuroticism_questions
 conscientiousness_questions
     use conscientiousness($avg)
     when
-        questions.conscientiousness_1($ans1)
-        questions.conscientiousness_2($ans2)
-        questions.conscientiousness_3($ans3)
-        questions.conscientiousness_4($ans4)
+        facts.conscientiousness_1($ans1)
+        facts.conscientiousness_2($ans2)
+        facts.conscientiousness_3($ans3)
+        facts.conscientiousness_4($ans4)
 
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
@@ -34,10 +34,10 @@ conscientiousness_questions
 agreeableness_questions
     use agreeableness($avg)
     when
-        questions.agreeableness_1($ans1)
-        questions.agreeableness_2($ans2)
-        questions.agreeableness_3($ans3)
-        questions.agreeableness_4($ans4)
+        facts.agreeableness_1($ans1)
+        facts.agreeableness_2($ans2)
+        facts.agreeableness_3($ans3)
+        facts.agreeableness_4($ans4)
 
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
@@ -45,10 +45,10 @@ agreeableness_questions
 extraversion_questions
     use extraversion($avg)
     when
-        questions.extraversion_1($ans1)
-        questions.extraversion_2($ans2)
-        questions.extraversion_3($ans3)
-        questions.extraversion_4($ans4)
+        facts.extraversion_1($ans1)
+        facts.extraversion_2($ans2)
+        facts.extraversion_3($ans3)
+        facts.extraversion_4($ans4)
 
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
@@ -56,12 +56,12 @@ extraversion_questions
 gender_question
     use gender($gender)
     when
-        questions.gender($gender)
+        facts.gender($gender)
 
 age_question
     use age($age)
     when
-        questions.age($age)
+        facts.age($age)
 
 check_serious_1
     use what_is_the_personality(serious)
