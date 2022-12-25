@@ -22,7 +22,7 @@
 
             <div class="input-box">
                 <label>Age</label>
-                <input type="number" name="age" placeholder="Age" required>
+                <input type="number" name="age" placeholder="Age" min="1" max="150" required>
             </div>
 
                         {% for question in questions %}
@@ -33,17 +33,19 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>/
-                    <option value="5">5</option>/
-                    <option value="6">6</option>/
-                    <option value="7">7</option>/
-                    <option value="8">8</option>/
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    {% if forloop.counter < 17 %}
+                    <option value="8">8</option>
+                    {% endif %}
                 </select>
             </div>
             {% endfor %}
 
             <div class="button">
-                <input class="submit" type="submit" value="Register">
+                <input class="submit" type="submit" value="Submit">
             </div>
 
         </form>
