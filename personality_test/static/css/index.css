@@ -9,7 +9,7 @@ body{
     background-size: auto;
 }
 .container{
-    margin-top: 30px;
+    margin-top: 350px;
     max-width: 1000px;
     width: 100%;
     background: #fff;
@@ -112,3 +112,10 @@ a:hover{
     margin-left: 30px;
     cursor: pointer;
 }
+
+
+
+
+
+
+

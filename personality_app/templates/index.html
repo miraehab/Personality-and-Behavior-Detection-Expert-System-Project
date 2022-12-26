@@ -3,14 +3,25 @@
 <head>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Personality Test</title>
+     <style>
+        h1 {
+            text-shadow: 2px 2px 5px purple;
+        }
+      </style>
 </head>
      
-<body>
+<body style="background-color:#4d366490;">
+
     <div class="container">
+
         <form  class="container" id="form" method="post">
+            
             {% csrf_token %}
-            <div class="title">Personality Test</div>
-            <br>
+            <img   class="ay7aga" src="{% static 'pictures/pic5.JPEG '%}"  width="1027" height="500"/>
+            <br></br>
+            <div class="title" ></div>
+            <h1 class="title">Welcome To Our Personality Test</h1>
+            
             <div class="input-box">
                 <label> Gender <b>:</b> </label>
                 <input id="gen1" type="radio" name="gender" value="Male" required>
@@ -29,23 +40,32 @@
             <h3 class="input-box">Question {{ forloop.counter }}:</h3>
             <div class="input-box">
                 <label>{{ question }}</label>
-                <select name="question{{ forloop.counter }}" id="Level">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
+                <div  name="question{{ forloop.counter }}" id="radios">
+                    <label for="input1">1</label>
+                    <input  id="input1" name="radio" type="radio" />
+                    <label for="input2">2</label>
+                    <input  id="input2" name="radio" type="radio" />
+                    <label for="input3">3</label>
+                    <input  id="input3" name="radio" type="radio" />
+                    <label for="input4">4</label>
+                    <input  id="input4" name="radio" type="radio" />
+                    <label for="input5">5</label>
+                    <input  id="input5" name="radio" type="radio" />
+                    <label for="input5">6</label>
+                    <input  id="input5" name="radio" type="radio" />
+                    <label for="input5">7</label>
+                    <input  id="input5" name="radio" type="radio" />
+                    <span id="slider"></span>
                     {% if forloop.counter < 17 %}
-                    <option value="8">8</option>
+                    <label for="input5">8</label>
+                    <input  id="input5" name="radio" type="radio" />
                     {% endif %}
-                </select>
+                </div>
             </div>
             {% endfor %}
 
             <div class="button">
-                <input class="submit" type="submit" value="Submit">
+                <input class="submit" type="submit" value="Submit" style="background-color:#4d3664;">
             </div>
 
         </form>
