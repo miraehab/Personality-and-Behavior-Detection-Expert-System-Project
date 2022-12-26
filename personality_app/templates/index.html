@@ -24,10 +24,10 @@
             
             <div class="input-box">
                 <label> Gender <b>:</b> </label>
-                <input id="gen1" type="radio" name="gender" value="Male" required>
+                <input id="gen1" type="radio" name="gender" value="0" required>
                 <label for="gen1">Male</label>
 
-                <input id="gen2" type="radio" name="gender" value="Female" required>
+                <input id="gen2" type="radio" name="gender" value="1" required>
                 <label for="gen2">Female</label>
             </div>
 
@@ -36,29 +36,29 @@
                 <input type="number" name="age" placeholder="Age" min="1" max="150" required>
             </div>
 
-                        {% for question in questions %}
+            {% for question in questions %}
             <h3 class="input-box">Question {{ forloop.counter }}:</h3>
             <div class="input-box">
                 <label>{{ question }}</label>
                 <div  name="question{{ forloop.counter }}" id="radios">
                     <label for="input1">1</label>
-                    <input  id="input1" name="radio" type="radio" />
+                    <input  id="input1" name="question{{ forloop.counter }}" type="radio" value="1" required/>
                     <label for="input2">2</label>
-                    <input  id="input2" name="radio" type="radio" />
+                    <input  id="input2" name="question{{ forloop.counter }}" type="radio" value="2" required/>
                     <label for="input3">3</label>
-                    <input  id="input3" name="radio" type="radio" />
+                    <input  id="input3" name="question{{ forloop.counter }}" type="radio" value="3" required/>
                     <label for="input4">4</label>
-                    <input  id="input4" name="radio" type="radio" />
+                    <input  id="input4" name="question{{ forloop.counter }}" type="radio" value="4" required/>
                     <label for="input5">5</label>
-                    <input  id="input5" name="radio" type="radio" />
-                    <label for="input5">6</label>
-                    <input  id="input5" name="radio" type="radio" />
-                    <label for="input5">7</label>
-                    <input  id="input5" name="radio" type="radio" />
+                    <input  id="input5" name="question{{ forloop.counter }}" type="radio" value="5" required/>
+                    <label for="input6">6</label>
+                    <input  id="input6" name="question{{ forloop.counter }}" type="radio" value="6" required/>
+                    <label for="input7">7</label>
+                    <input  id="input7" name="question{{ forloop.counter }}" type="radio" value="7" required/>
                     <span id="slider"></span>
                     {% if forloop.counter < 17 %}
-                    <label for="input5">8</label>
-                    <input  id="input5" name="radio" type="radio" />
+                    <label for="input8">8</label>
+                    <input  id="input8" name="question{{ forloop.counter }}" type="radio" value="8" required/>
                     {% endif %}
                 </div>
             </div>
@@ -67,7 +67,9 @@
             <div class="button">
                 <input class="submit" type="submit" value="Submit" style="background-color:#4d3664;">
             </div>
+            <div id="feedback">
 
+            </div>
         </form>
 
     </div>

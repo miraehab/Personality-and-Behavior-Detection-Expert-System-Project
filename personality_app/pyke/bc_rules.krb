@@ -1,4 +1,4 @@
-openness_questions
+openness
     use openness($avg)
     when
         facts.openness_1($ans1)
@@ -9,7 +9,7 @@ openness_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-neuroticism_questions
+neuroticism
     use neuroticism($avg)
     when
         facts.neuroticism_1($ans1)
@@ -20,7 +20,7 @@ neuroticism_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-conscientiousness_questions
+conscientiousness
     use conscientiousness($avg)
     when
         facts.conscientiousness_1($ans1)
@@ -31,7 +31,7 @@ conscientiousness_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-agreeableness_questions
+agreeableness
     use agreeableness($avg)
     when
         facts.agreeableness_1($ans1)
@@ -42,7 +42,7 @@ agreeableness_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-extraversion_questions
+extraversion
     use extraversion($avg)
     when
         facts.extraversion_1($ans1)
@@ -53,12 +53,12 @@ extraversion_questions
         $tot = $ans1 + $ans2 + $ans3 + $ans4
         $avg = $tot / 4
 
-gender_question
+gender
     use gender($gender)
     when
         facts.gender($gender)
 
-age_question
+age
     use age($age)
     when
         facts.age($age)

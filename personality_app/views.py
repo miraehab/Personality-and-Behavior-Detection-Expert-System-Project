@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 import sys
 
@@ -27,7 +28,7 @@ def index(request):
                 else:
                     f.write(f"extraversion_{i-16}({request.POST[f'question{i}']})\n")
         personalities = test_questions()
-        print(f"Your Personality is: {personalities[-1]}")
+        
 
 
     question_list = [

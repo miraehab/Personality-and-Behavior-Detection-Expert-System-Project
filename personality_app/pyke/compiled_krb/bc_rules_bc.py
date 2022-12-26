@@ -5,7 +5,7 @@ from pyke import contexts, pattern, bc_rule
 pyke_version = '1.1.1'
 compiler_version = 1
 
-def openness_questions(rule, arg_patterns, arg_context):
+def openness(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -22,25 +22,25 @@ def openness_questions(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.openness_questions: got unexpected plan from when clause 1"
+              "bc_rules.openness: got unexpected plan from when clause 1"
             with engine.prove('facts', 'openness_2', context,
                               (rule.pattern(1),)) \
               as gen_2:
               for x_2 in gen_2:
                 assert x_2 is None, \
-                  "bc_rules.openness_questions: got unexpected plan from when clause 2"
+                  "bc_rules.openness: got unexpected plan from when clause 2"
                 with engine.prove('facts', 'openness_3', context,
                                   (rule.pattern(2),)) \
                   as gen_3:
                   for x_3 in gen_3:
                     assert x_3 is None, \
-                      "bc_rules.openness_questions: got unexpected plan from when clause 3"
+                      "bc_rules.openness: got unexpected plan from when clause 3"
                     with engine.prove('facts', 'openness_4', context,
                                       (rule.pattern(3),)) \
                       as gen_4:
                       for x_4 in gen_4:
                         assert x_4 is None, \
-                          "bc_rules.openness_questions: got unexpected plan from when clause 4"
+                          "bc_rules.openness: got unexpected plan from when clause 4"
                         mark5 = context.mark(True)
                         if rule.pattern(4).match_data(context, context,
                                 context.lookup_data('ans1') + context.lookup_data('ans2') + context.lookup_data('ans3') + context.lookup_data('ans4')):
@@ -59,7 +59,7 @@ def openness_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
-def neuroticism_questions(rule, arg_patterns, arg_context):
+def neuroticism(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -76,25 +76,25 @@ def neuroticism_questions(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.neuroticism_questions: got unexpected plan from when clause 1"
+              "bc_rules.neuroticism: got unexpected plan from when clause 1"
             with engine.prove('facts', 'neuroticism_2', context,
                               (rule.pattern(1),)) \
               as gen_2:
               for x_2 in gen_2:
                 assert x_2 is None, \
-                  "bc_rules.neuroticism_questions: got unexpected plan from when clause 2"
+                  "bc_rules.neuroticism: got unexpected plan from when clause 2"
                 with engine.prove('facts', 'neuroticism_3', context,
                                   (rule.pattern(2),)) \
                   as gen_3:
                   for x_3 in gen_3:
                     assert x_3 is None, \
-                      "bc_rules.neuroticism_questions: got unexpected plan from when clause 3"
+                      "bc_rules.neuroticism: got unexpected plan from when clause 3"
                     with engine.prove('facts', 'neuroticism_4', context,
                                       (rule.pattern(3),)) \
                       as gen_4:
                       for x_4 in gen_4:
                         assert x_4 is None, \
-                          "bc_rules.neuroticism_questions: got unexpected plan from when clause 4"
+                          "bc_rules.neuroticism: got unexpected plan from when clause 4"
                         mark5 = context.mark(True)
                         if rule.pattern(4).match_data(context, context,
                                 context.lookup_data('ans1') + context.lookup_data('ans2') + context.lookup_data('ans3') + context.lookup_data('ans4')):
@@ -113,7 +113,7 @@ def neuroticism_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
-def conscientiousness_questions(rule, arg_patterns, arg_context):
+def conscientiousness(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -130,25 +130,25 @@ def conscientiousness_questions(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.conscientiousness_questions: got unexpected plan from when clause 1"
+              "bc_rules.conscientiousness: got unexpected plan from when clause 1"
             with engine.prove('facts', 'conscientiousness_2', context,
                               (rule.pattern(1),)) \
               as gen_2:
               for x_2 in gen_2:
                 assert x_2 is None, \
-                  "bc_rules.conscientiousness_questions: got unexpected plan from when clause 2"
+                  "bc_rules.conscientiousness: got unexpected plan from when clause 2"
                 with engine.prove('facts', 'conscientiousness_3', context,
                                   (rule.pattern(2),)) \
                   as gen_3:
                   for x_3 in gen_3:
                     assert x_3 is None, \
-                      "bc_rules.conscientiousness_questions: got unexpected plan from when clause 3"
+                      "bc_rules.conscientiousness: got unexpected plan from when clause 3"
                     with engine.prove('facts', 'conscientiousness_4', context,
                                       (rule.pattern(3),)) \
                       as gen_4:
                       for x_4 in gen_4:
                         assert x_4 is None, \
-                          "bc_rules.conscientiousness_questions: got unexpected plan from when clause 4"
+                          "bc_rules.conscientiousness: got unexpected plan from when clause 4"
                         mark5 = context.mark(True)
                         if rule.pattern(4).match_data(context, context,
                                 context.lookup_data('ans1') + context.lookup_data('ans2') + context.lookup_data('ans3') + context.lookup_data('ans4')):
@@ -167,7 +167,7 @@ def conscientiousness_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
-def agreeableness_questions(rule, arg_patterns, arg_context):
+def agreeableness(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -184,25 +184,25 @@ def agreeableness_questions(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.agreeableness_questions: got unexpected plan from when clause 1"
+              "bc_rules.agreeableness: got unexpected plan from when clause 1"
             with engine.prove('facts', 'agreeableness_2', context,
                               (rule.pattern(1),)) \
               as gen_2:
               for x_2 in gen_2:
                 assert x_2 is None, \
-                  "bc_rules.agreeableness_questions: got unexpected plan from when clause 2"
+                  "bc_rules.agreeableness: got unexpected plan from when clause 2"
                 with engine.prove('facts', 'agreeableness_3', context,
                                   (rule.pattern(2),)) \
                   as gen_3:
                   for x_3 in gen_3:
                     assert x_3 is None, \
-                      "bc_rules.agreeableness_questions: got unexpected plan from when clause 3"
+                      "bc_rules.agreeableness: got unexpected plan from when clause 3"
                     with engine.prove('facts', 'agreeableness_4', context,
                                       (rule.pattern(3),)) \
                       as gen_4:
                       for x_4 in gen_4:
                         assert x_4 is None, \
-                          "bc_rules.agreeableness_questions: got unexpected plan from when clause 4"
+                          "bc_rules.agreeableness: got unexpected plan from when clause 4"
                         mark5 = context.mark(True)
                         if rule.pattern(4).match_data(context, context,
                                 context.lookup_data('ans1') + context.lookup_data('ans2') + context.lookup_data('ans3') + context.lookup_data('ans4')):
@@ -221,7 +221,7 @@ def agreeableness_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
-def extraversion_questions(rule, arg_patterns, arg_context):
+def extraversion(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -238,25 +238,25 @@ def extraversion_questions(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.extraversion_questions: got unexpected plan from when clause 1"
+              "bc_rules.extraversion: got unexpected plan from when clause 1"
             with engine.prove('facts', 'extraversion_2', context,
                               (rule.pattern(1),)) \
               as gen_2:
               for x_2 in gen_2:
                 assert x_2 is None, \
-                  "bc_rules.extraversion_questions: got unexpected plan from when clause 2"
+                  "bc_rules.extraversion: got unexpected plan from when clause 2"
                 with engine.prove('facts', 'extraversion_3', context,
                                   (rule.pattern(2),)) \
                   as gen_3:
                   for x_3 in gen_3:
                     assert x_3 is None, \
-                      "bc_rules.extraversion_questions: got unexpected plan from when clause 3"
+                      "bc_rules.extraversion: got unexpected plan from when clause 3"
                     with engine.prove('facts', 'extraversion_4', context,
                                       (rule.pattern(3),)) \
                       as gen_4:
                       for x_4 in gen_4:
                         assert x_4 is None, \
-                          "bc_rules.extraversion_questions: got unexpected plan from when clause 4"
+                          "bc_rules.extraversion: got unexpected plan from when clause 4"
                         mark5 = context.mark(True)
                         if rule.pattern(4).match_data(context, context,
                                 context.lookup_data('ans1') + context.lookup_data('ans2') + context.lookup_data('ans3') + context.lookup_data('ans4')):
@@ -275,7 +275,7 @@ def extraversion_questions(rule, arg_patterns, arg_context):
     finally:
       context.done()
 
-def gender_question(rule, arg_patterns, arg_context):
+def gender(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -292,14 +292,14 @@ def gender_question(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.gender_question: got unexpected plan from when clause 1"
+              "bc_rules.gender: got unexpected plan from when clause 1"
             rule.rule_base.num_bc_rule_successes += 1
             yield
         rule.rule_base.num_bc_rule_failures += 1
     finally:
       context.done()
 
-def age_question(rule, arg_patterns, arg_context):
+def age(rule, arg_patterns, arg_context):
   engine = rule.rule_base.engine
   patterns = rule.goal_arg_patterns()
   if len(arg_patterns) == len(patterns):
@@ -316,7 +316,7 @@ def age_question(rule, arg_patterns, arg_context):
           as gen_1:
           for x_1 in gen_1:
             assert x_1 is None, \
-              "bc_rules.age_question: got unexpected plan from when clause 1"
+              "bc_rules.age: got unexpected plan from when clause 1"
             rule.rule_base.num_bc_rule_successes += 1
             yield
         rule.rule_base.num_bc_rule_failures += 1
@@ -1198,8 +1198,8 @@ def check_dependable_3(rule, arg_patterns, arg_context):
 def populate(engine):
   This_rule_base = engine.get_create('bc_rules')
   
-  bc_rule.bc_rule('openness_questions', This_rule_base, 'openness',
-                  openness_questions, None,
+  bc_rule.bc_rule('openness', This_rule_base, 'openness',
+                  openness, None,
                   (contexts.variable('avg'),),
                   (),
                   (contexts.variable('ans1'),
@@ -1209,8 +1209,8 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
-  bc_rule.bc_rule('neuroticism_questions', This_rule_base, 'neuroticism',
-                  neuroticism_questions, None,
+  bc_rule.bc_rule('neuroticism', This_rule_base, 'neuroticism',
+                  neuroticism, None,
                   (contexts.variable('avg'),),
                   (),
                   (contexts.variable('ans1'),
@@ -1220,8 +1220,8 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
-  bc_rule.bc_rule('conscientiousness_questions', This_rule_base, 'conscientiousness',
-                  conscientiousness_questions, None,
+  bc_rule.bc_rule('conscientiousness', This_rule_base, 'conscientiousness',
+                  conscientiousness, None,
                   (contexts.variable('avg'),),
                   (),
                   (contexts.variable('ans1'),
@@ -1231,8 +1231,8 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
-  bc_rule.bc_rule('agreeableness_questions', This_rule_base, 'agreeableness',
-                  agreeableness_questions, None,
+  bc_rule.bc_rule('agreeableness', This_rule_base, 'agreeableness',
+                  agreeableness, None,
                   (contexts.variable('avg'),),
                   (),
                   (contexts.variable('ans1'),
@@ -1242,8 +1242,8 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
-  bc_rule.bc_rule('extraversion_questions', This_rule_base, 'extraversion',
-                  extraversion_questions, None,
+  bc_rule.bc_rule('extraversion', This_rule_base, 'extraversion',
+                  extraversion, None,
                   (contexts.variable('avg'),),
                   (),
                   (contexts.variable('ans1'),
@@ -1253,14 +1253,14 @@ def populate(engine):
                    contexts.variable('tot'),
                    contexts.variable('avg'),))
   
-  bc_rule.bc_rule('gender_question', This_rule_base, 'gender',
-                  gender_question, None,
+  bc_rule.bc_rule('gender', This_rule_base, 'gender',
+                  gender, None,
                   (contexts.variable('gender'),),
                   (),
                   (contexts.variable('gender'),))
   
-  bc_rule.bc_rule('age_question', This_rule_base, 'age',
-                  age_question, None,
+  bc_rule.bc_rule('age', This_rule_base, 'age',
+                  age, None,
                   (contexts.variable('age'),),
                   (),
                   (contexts.variable('age'),))
