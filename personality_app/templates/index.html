@@ -14,14 +14,14 @@
 
     <div class="container">
 
-        <form  class="container" id="form" method="post">
+        <form  class="container"  id="form" method="post">
             
             {% csrf_token %}
             <img   class="ay7aga" src="{% static 'pictures/pic5.JPEG '%}"  width="1027" height="500"/>
             <br></br>
             <div class="title" ></div>
             <h1 class="title">Welcome To Our Personality Test</h1>
-            
+
             <div class="input-box">
                 <label> Gender <b>:</b> </label>
                 <input id="gen1" type="radio" name="gender" value="0" required>
@@ -66,12 +66,11 @@
 
             <div class="button">
                 <input class="submit" type="submit" value="Submit" style="background-color:#4d3664;">
-            </div>
-            <div id="feedback">
 
             </div>
         </form>
 
     </div>
+
 </body>
 </html>

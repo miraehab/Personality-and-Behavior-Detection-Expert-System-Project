@@ -19,5 +19,6 @@ from personality_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', views.index, name='index'),
+    path('feedback/', views.feedback, name='feedback'),
 ]

@@ -2,9 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import sys
 
-
+personality = None
 # Create your views here.
 def index(request):
+    question_list = []
     if request.method == 'POST':
         with open('personality_app/pyke/facts.kfb', 'w') as f:
             age = request.POST['age']
@@ -27,8 +28,12 @@ def index(request):
                     f.write(f"agreeableness_{i-12}({request.POST[f'question{i}']})\n")
                 else:
                     f.write(f"extraversion_{i-16}({request.POST[f'question{i}']})\n")
+        global personalities
         personalities = test_questions()
-        
+        return render(request, 'feedback.html', context={
+            'personality': personalities[-1].title(),
+        }
+                      )
 
 
     question_list = [
@@ -53,10 +58,13 @@ def index(request):
         "I don't mind being the center of attention. rate yourself from 1 to 7",
         "I make friends easily. rate yourself from 1 to 7",
     ]
-    return render(request, 'index.html', context={'questions': question_list})
+    return render(request, 'index.html', context={'questions': question_list, 'personality':None})
 
 
 def test_questions():
     sys.path.append('personality_app/pyke')
     import driver
     return driver.bc_test()
+
+def feedback(request):
+    return render(request, 'feedback.html', context={'personality': personality})
